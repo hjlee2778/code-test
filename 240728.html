@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    function solution(n) {
+        // 곱셈이므로 answer을 1로 초기 설정.
+        let answer = 1;
+        // for 반복문으로 팩토리얼을 우선 구성. 
+        for(let i = 1; i <= n; i++) {
+            answer = answer * i;        
+
+            // 조건에 따르면, 최대로 될 수 있는게 3628800 이므로, 같을 수 있는 조건을 설정.
+            if (answer === n) {
+                return i;
+            }
+
+            // answer 값이 n보다 커질경우, 바로 전의 i를 반환하여 조건에 맞는 i를 찾을 수 있게 함.
+            if (answer > n) {
+                return i-1;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
