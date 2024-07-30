@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function solution(num, total) {
-        var answer = [];
-        return answer;
+
+        // 연속된 수 num 개가 있을 때, 이들의 합은?
+        // 3으로 예시를 들어보면 : firstNum + firstNum + 1 + firstNum + 2
+        // -> 3 * firstNum + ( 0 + 1 + 2 )
+        // 이걸 식으로 나타내보면
+        // sum = num * firstNum + (num * (num - 1) / 2) 등차수열 합 구하는 공식에 대입하여 적용하면 다음과 같이 나오게 됨!
+        
+        // 위의 식으로 firstNum을 구해보면, firstNum = (sum - (num * (num - 1) / 2)) / num 
+
+
+        function solution(num, sum) {
+            //첫번째 숫자 계산하기
+            let firstNum = (sum - (num * (num - 1) / 2)) / num  
+
+            // 배열 초기화
+            var answer = [];
+
+            // 주어진 num의 개수 만큼 배열을 차례대로 채우기
+            for (i=0; i < num; i++) {
+                answer.push(firstNum + i);
+            }
+            return answer;
         }
     </script>
 </head>
