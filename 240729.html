@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        // 연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5입니다. 두 정수 num과 total이 주어집니다. 연속된 수 num개를 더한 값이 total이 될 때, 정수 배열을 오름차순으로 담아 return하도록 solution함수를 완성해보세요.
+
 
         // 연속된 수 num 개가 있을 때, 이들의 합은?
         // 3으로 예시를 들어보면 : firstNum + firstNum + 1 + firstNum + 2
@@ -23,9 +25,10 @@
             var answer = [];
 
             // 주어진 num의 개수 만큼 배열을 차례대로 채우기
-            for (i=0; i < num; i++) {
+            for (let i=0; i < num; i++) {
                 answer.push(firstNum + i);
             }
+             // 최종적으로 배열을 반환
             return answer;
         }
     </script>
