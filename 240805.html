@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    // 주어진 n까지 모든 소수의 개수를 찾는 함수
+    // 첨에는 전부 계산하려니까 효율성 측에서 점수를 받지 못함. 어차피 짝수는 소수가 될수 없으므로, 홀수만 계산하는 방법으로 바꿈.
+
+    function solution(n) {
+    // 소수의 개수를 저장할 변수, n은 2부터인데, 2는 소수니까 처음에 count를 1로 설정.
+    let count = 1;
+    
+    // 3부터 n까지 홀수만 확인한다.
+    for (let i = 3; i <= n; i+=2) {
+        // 소수인지 확인하기 위한 변수
+        let prime = true;
+        
+        // 숫자를 3부터 숫자의 제곱근까지 홀수로 나누어본다.
+        //  i가 어떤 작은 숫자로 나누어 떨어지지 않는다면, 그 숫자보다 큰 수로도 나누어 떨어지지 않는다. 예를 들어, i가 49라면, 2, 3, 4, 5, 6으로 나누어 떨어지지 않는다면, 7이상으로도 나누어 떨어지지 않는다.
+        for (let j = 3; j * j <= i; j+=2) {
+            // i가 j로 나누어 떨어지면 소수가 아님.
+            if (i % j === 0) {
+                prime = false;
+                break;
+            }
+        }
+        
+        // 소수라면 소수의 개수를 증가시킨다.
+        if (prime === true) {
+            count++;
+        }
+    }
+    
+    // 소수의 개수를 반환한다.
+    return count;
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
