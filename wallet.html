@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function solution(sizes) {
+    // row(가로)값과 col(세로)값 중 row 값을 항상 더 큰 수로 남기게 된다.
+    let row = Math.max(sizes[0][0], sizes[0][1]);
+    let col = Math.min(sizes[0][0], sizes[0][1]);
+    
+    for(let i = 1; i < sizes.length; i++) {
+        // i부터 sizes의 배열까지 넣어보면서 다시 maxsize와 minsize에 각 배열값을 비교해서 큰값과 작은값을 다시 넣어둔다.
+        let maxsize = Math.max(sizes[i][0], sizes[i][1]);
+        let minsize = Math.min(sizes[i][0], sizes[i][1]);
+        
+
+        if (row < maxsize) {
+            // 혹시라도 배열을 순회하던 중 row 값 보다 큰 maxsize의 값이 나왔을 경우, 그 값을 row에 대입해준다.
+            row = maxsize;
+        } 
+        
+        if (col < minsize) {
+            // 혹시라도 배열을 순회하던 중 col 값 보다 큰 minsize의 값이 나왔을 경우, 그 값을 col에 대입해준다. 왜? 명함의 사이즈에 맞아야 하니까.
+            col = minsize;
+        }        
+    }
+    return row * col;
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
