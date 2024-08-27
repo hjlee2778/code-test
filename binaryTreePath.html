@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      
+      //저는 오히려 이분 탐색이 정말 어려웠습니다. 이건 개념 자체를 잘 모르는 것 같아서 풀수가 없었어요...
+      // 우선 구글링도 해봤는데, 어려워서 지피티의 해설을 들고 왔습니다...
+      
+      function binaryTreePaths(root) {
+        let paths = []; // 경로를 저장할 배열
+
+        // 트리를 탐색하는 함수
+        function dfs(node, path) {
+          if (!node) return; // 노드가 null이면 종료
+
+          path += node.val; // 현재 노드를 경로에 추가
+
+          // 리프 노드인 경우 (왼쪽과 오른쪽 자식이 없는 경우)
+          if (!node.left && !node.right) {
+            paths.push(path); // 현재까지의 경로를 결과에 추가
+          } else {
+            // 현재 경로에 '->'를 추가하고 자식 노드로 이동
+            path += "->";
+            dfs(node.left, path); // 왼쪽 자식 탐색
+            dfs(node.right, path); // 오른쪽 자식 탐색
+          }
+        }
+
+        dfs(root, ""); // 루트 노드에서 탐색 시작
+        return paths; // 모든 경로가 담긴 배열 반환
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

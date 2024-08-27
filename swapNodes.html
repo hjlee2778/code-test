@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function swapPairs(head) {
+        //노드가 없거나 노드가 하나만 있는 경우 그대로 반환
+        if (!head || !head.next) {
+          return head;
+        }
+
+        //첫 번째 노드와 두 번째 노드를 설정
+        let firstNode = head;
+        let secondNode = head.next;
+
+        // 첫 번째 노드의 다음을 재귀적으로 교환된 다음 쌍으로 설정
+        // [1, 2, 3, 4] 로 예시
+        // 첫 번째 호출 (1과 2 교환)
+        // 입력: [1, 2, 3, 4] (head는 1을 가리킴)
+        // firstNode = 1, secondNode = 2
+        // firstNode.next = swapPairs(3)를 호출하여 나머지 [3, 4]을 처리하도록 함.
+        firstNode.next = swapPairs(secondNode.next);
+
+        // 두 번째 노드가 첫 번째 노드를 가리키게 함.
+        secondNode.next = firstNode;
+
+        // 두 번째 노드를 새로운 head로 반환.
+        return secondNode;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

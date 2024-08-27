@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function solution(answers) {
+        // 수포자들의 찍기 패턴
+        const pattern1 = [1, 2, 3, 4, 5];
+        const pattern2 = [2, 1, 2, 3, 2, 4, 2, 5];
+        const pattern3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+
+        // 각 수포자가 맞힌 문제 수를 기록할 변수
+        let score1 = 0;
+        let score2 = 0;
+        let score3 = 0;
+
+        // 답안을 하나씩 확인하면서 각 수포자의 점수를 계산
+        // i % pattern1.length를 통해 수포자들의 찍기 패턴에 알맞게 확인할 수 있음.
+        for (let i = 0; i < answers.length; i++) {
+            if (answers[i] === pattern1[i % pattern1.length]) score1++;
+            if (answers[i] === pattern2[i % pattern2.length]) score2++;
+            if (answers[i] === pattern3[i % pattern3.length]) score3++;
+        }
+
+        // 수포자의 최대 점수를 구함.
+        const maxScore = Math.max(score1, score2, score3);
+
+        // 가장 높은 점수를 받은 수포자를 배열로 반환
+        // 중복되어도, 배열로 나타내기 때문에 표현 가능.
+        const result = [];
+        if (score1 === maxScore) result.push(1);
+        if (score2 === maxScore) result.push(2);
+        if (score3 === maxScore) result.push(3);
+
+        return result;
+    }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

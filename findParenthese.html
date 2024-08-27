@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function solution(s) {
+        // 문자열이 ')'로 시작하면 올바르지 않은 괄호기 때문에 false 값을 받아옴.
+            if (s[0] === ")") return false;    
+            // 초기화
+            let num = 0;
+    
+            for (let i = 0; i <= s.length - 1; i++) {
+            // 한번씩 순회해서 괄호의 짝을 맞추기 위해 증감을 함.    
+            // '('이면 number를 1 증가
+            // ')'이면 number를 1 감소.
+            (s[i] === "(") ? num += 1 : num -= 1;
+        
+            // number가 0보다 작으면 올바르지 않은 괄호이므로 false를 반환
+            if (num < 0) return false;
+        }
+    
+        // 모든 문자를 처리후 number가 0이면 true, 그렇지 않으면 false를 반환
+        // number가 0이라는 것은 여는 괄호와 닫는 괄호의 수가 일치한다는 의미
+        return (num === 0) ? true : false;
+    }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
